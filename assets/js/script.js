@@ -160,16 +160,15 @@ var completeEditTask = function (taskName, taskType, taskId) {
     formEl.querySelector("#save-task").textContent = "Add Task";
 };
 
-var taskStatusChangeHandler = function (event) {
-    console.log(event.target.value);
-
-    // find task list item based on event.target's data-task-id attribute
+var taskStatusChangeHandler = function(event) {
+    //get the task item's id
     var taskId = event.target.getAttribute("data-task-id");
 
-    var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
-
-    // convert value to lower case
+    //get the currently selected option's value and convert to lowercase
     var statusValue = event.target.value.toLowerCase();
+
+    //find the parent taks item element based on the id
+    var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
 
     if (statusValue === "to do") {
         tasksToDoEl.appendChild(taskSelected);

@@ -148,7 +148,8 @@ var deleteTask = function (taskId) {
 
 var completeEditTask = function (taskName, taskType, taskId) {
     //find the matching task list item
-    var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "'");
+    var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
+    console.log(taskSelected);
 
     //set new values
     taskSelected.querySelector("h3.task-name").textContent = taskName;
@@ -174,6 +175,7 @@ var taskStatusChangeHandler = function(event) {
         tasksToDoEl.appendChild(taskSelected);
     }
     else if (statusValue === "in progress") {
+        console.log(taskSelected);
         tasksInProgressEl.appendChild(taskSelected);
     }
     else if (statusValue === "completed") {
